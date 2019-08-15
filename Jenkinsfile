@@ -3,12 +3,12 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'mvn clean instal -DskipTest'
+                echo 'hi build'
             }
         }
         stage('health-check') {
             steps {
-                sh 'curl http://localhost:8000/health'
+                echo 'hi health-check'
             }
         }
     }
