@@ -1,12 +1,17 @@
 version: "3"
 
-service:
+services:
   jenkins:
     image: "jenkins/jenkins:lts"
     volumes:
       - jenkins_volume:/var/jenkins_home
+      - jenkins_maven_volume:/root/.m2
       - /var/run/docker.sock:/var/run/docker.sock
     ports:
       - "8090:8080"
       - "50000:50000"
     user: root
+    container_name: jenkins_local
+volumes:
+  jenkins_volume:
+  jenkins_maven_volume:
